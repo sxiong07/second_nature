@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
-import Skeleton from "./components/pages/Skeleton";
+import Login from "./components/pages/Login";
+import Upload from "./components/pages/Upload";
 import NotFound from "./components/pages/NotFound";
 
 import {
@@ -19,7 +20,8 @@ const GOOGLE_CLIENT_ID = "435083304248-2bhn941itlu7jf5v3e3sbfku67n99gjv.apps.goo
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<NotFound />} element={<App />}>
-      <Route path="/" element={<Skeleton />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/upload" element={<Upload />} />
     </Route>
   )
 );

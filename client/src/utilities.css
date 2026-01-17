@@ -16,13 +16,14 @@
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap");
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
+  --primary: #001e44;
+  /* --primary--dim: #6987db;
   --darkgrey: #d4d4d4;
-  --medgrey: #e0e0e0;
-  --grey: #f7f7f7;
+   --medgrey: #e0e0e0; */
+  --grey: #1a73e8;
   --white: #fff;
 
   --xs: 4px;
@@ -32,6 +33,7 @@
 }
 
 body {
+  background-color: var(--primary);
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
