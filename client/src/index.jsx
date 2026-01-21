@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Login from "./components/pages/Login";
 import Upload from "./components/pages/Upload";
+import Skeleton from "./components/pages/Skeleton";
+import Webcam from "./components/modules/Webcam";
 import NotFound from "./components/pages/NotFound";
+import VideoLink from "./components/modules/VideoLink";
+import VideoCamera from "./components/pages/VideoCamera";
 
 import {
   createBrowserRouter,
@@ -22,6 +26,7 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Login />} />
       <Route path="/upload" element={<Upload />} />
+      <Route path="/view" element={<VideoCamera />} />
     </Route>
   )
 );
