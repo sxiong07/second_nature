@@ -9,6 +9,8 @@ import { socket } from "../client-socket";
 
 import { get, post } from "../utilities";
 
+import VideoUploader from "./pages/VideoUploader";
+
 export const UserContext = createContext(null);
 
 /**
@@ -49,6 +51,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={authContextValue}>
+      <VideoUploader />
       <Outlet />
     </UserContext.Provider>
   );
