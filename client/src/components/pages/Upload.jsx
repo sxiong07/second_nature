@@ -9,7 +9,7 @@ import { UserContext } from "../App";
 
 const Upload = () => {
   const { userId, handleLogin, handleLogout } = useContext(UserContext);
-  const [showAbout, setShowAbout] = useState(false);
+  const [open, setOpen] = useState(null);
   const navigate = useNavigate();
 
   return (
@@ -23,7 +23,7 @@ const Upload = () => {
             navigate("/");
           }}
         >
-          <FiLogOut />
+          <FiLogOut size={36} />
         </button>
       ) : (
         <GoogleLogin
@@ -41,7 +41,10 @@ const Upload = () => {
           <h2 className="Subtitle-content">practice in sync. perfect your form.</h2>
         </div>
         <div className="Buttons-parent">
-          <button className="Button-container" onClick={() => setShowAbout((prev) => !prev)}>
+          <button
+            className="Button-container"
+            onClick={() => setOpen((prev) => (prev === "about" ? null : "about"))}
+          >
             <span className="Button-content">about</span>
           </button>
           <button
@@ -52,15 +55,26 @@ const Upload = () => {
           >
             <span className="Button-content">upload video</span>
           </button>
+          <button
+            className="Button-container"
+            onClick={() => setOpen((prev) => (prev === "link" ? null : "link"))}
+          >
+            <span className="Button-content">video link</span>
+          </button>
         </div>
 
-        {showAbout && (
+        {open === "about" && (
           <div className="About-container">
             <span className="Button-content">
               Sample text for now. Just for MVP. Would ideally make another whole webpage? Idk. I
               wanna animate this but it's 3 am so not right now. What else do I say. Meow.
             </span>
-            {/*console.log("e")*/}
+          </div>
+        )}
+
+        {open === "link" && (
+          <div className="About-container">
+            <span className="Button-content">user puts youtube link here</span>
           </div>
         )}
       </div>
