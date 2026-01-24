@@ -81,3 +81,11 @@
   cursor: pointer;
   color: var(--white);
 }
+
+.Youtube-input {
+  width: 350px;
+}
+
+input::placeholder {
+  text-align: center;
+}

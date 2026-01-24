@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import "./VideoPlay.css";
+import Webcam from "../modules/Webcam";
 
 const VideoPlay = () => {
   const videoRef = useRef(null);
@@ -34,42 +36,49 @@ const VideoPlay = () => {
 
   // including various setting buttons and boxes
   return (
-    <div>
-      <video ref={videoRef} src="video.mp4" controls onTimeUpdate={handleTimeUpdate} />
-      <button onClick={() => setLoopSetting((prev) => !prev)}>
-        {loopSetting ? "Unloop Video" : "Loop Video"}
-      </button>
-      <label>
-        Playback Speed
-        <input
-          type="number"
-          step="0.1"
-          min="0.1"
-          value={playbackSpeed}
-          onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
-        />
-      </label>
-      <label>
-        Start Time (seconds)
-        <input
-          type="number"
-          step="0.1"
-          min="0"
-          value={startTime}
-          onChange={(e) => setStartTime(Number(e.target.value))}
-        />
-      </label>
-      <label>
-        End Time (seconds)
-        <input
-          type="number"
-          step="0.1"
-          min="0"
-          value={endTime}
-          onChange={(e) => setEndTime(Number(e.target.value))}
-        />
-      </label>
-      <button onClick={playVideo}>Play</button>
+    <div className="Video-container">
+      <div className="VideoPlay-container">
+        <video ref={videoRef} src="/test-video.mp4" controls onTimeUpdate={handleTimeUpdate} />
+        <div className="VideoPlay-controls">
+          <button onClick={() => setLoopSetting((prev) => !prev)}>
+            {loopSetting ? "Unloop Video" : "Loop Video"}
+          </button>
+          <label>
+            Playback Speed
+            <input
+              type="number"
+              step="0.1"
+              min="0.1"
+              value={playbackSpeed}
+              onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
+            />
+          </label>
+          <label>
+            Start Time (seconds)
+            <input
+              type="number"
+              step="0.1"
+              min="0"
+              value={startTime}
+              onChange={(e) => setStartTime(Number(e.target.value))}
+            />
+          </label>
+          <label>
+            End Time (seconds)
+            <input
+              type="number"
+              step="0.1"
+              min="0"
+              value={endTime}
+              onChange={(e) => setEndTime(Number(e.target.value))}
+            />
+          </label>
+          <button onClick={playVideo}>Play</button>
+        </div>
+      </div>
+      <div className="VideoCamera-video">
+        <Webcam />
+      </div>
     </div>
   );
 };

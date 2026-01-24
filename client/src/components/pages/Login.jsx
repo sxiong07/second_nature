@@ -5,6 +5,7 @@ import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import "../../utilities.css";
 import { get, post } from "../../utilities";
 import "./Login.css";
+import "./Upload.css";
 import { UserContext } from "../App";
 
 const Login = () => {
@@ -12,11 +13,6 @@ const Login = () => {
   const [showAbout, setShowAbout] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (userId) {
-      navigate("/upload");
-    }
-  }, [userId, navigate]);
   return (
     <>
       <div className="Parent-container">
@@ -28,16 +24,7 @@ const Login = () => {
           <button className="Button-container" onClick={() => setShowAbout((prev) => !prev)}>
             <span className="Button-content">about</span>
           </button>
-          {userId ? (
-            <button
-              onClick={() => {
-                googleLogout();
-                handleLogout();
-              }}
-            >
-              Logout
-            </button>
-          ) : (
+          {!userId && (
             <GoogleLogin
               onSuccess={handleLogin}
               onError={(err) => console.log(err)}
@@ -51,11 +38,17 @@ const Login = () => {
 
         {showAbout && (
           <div className="About-container">
-            <span className="Button-content">
-              Sample text for now. Just for MVP. Would ideally make another whole webpage? Idk. I
-              wanna animate this but it's 3 am so not right now. What else do I say. Meow.
-            </span>
-            {/*console.log("e")*/}
+            <p className="Button-content">
+              second nature is a movement-focused web platform designed to help you refine your
+              skills through practice, reptition, and self-monitoring.
+              <br /> <br /> Practice side-by-side with uploaded or YouTube reference videos while
+              viewing your own camera feed in real time. Break movements down using customizable
+              playback tools, including looping the video, clipping specific segments, and adjusting
+              playback speed.
+              <br /> <br />
+              Whether you're dancing, working out, or practicing an instrument, second nature helps
+              you practice in sync and perfect your form.
+            </p>
           </div>
         )}
       </div>

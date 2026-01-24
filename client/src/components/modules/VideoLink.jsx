@@ -1,12 +1,8 @@
-import React from 'react';
-import Youtube from 'react-youtube-embed';
+import React from "react";
+import Youtube from "react-youtube-embed";
 
-const VideoLink = () => {
-    return (
-        <div className = "video-container"> 
-            <Youtube id="9YxCFnL4BgY" /> {/*insert real video ID here*/}
-        </div>
-    );
+const VideoLink = ({ videoId }) => {
+  return <div className="video-container">{videoId && <Youtube id={videoId} />}</div>;
 };
 
 export default VideoLink;

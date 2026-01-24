@@ -1,0 +1,48 @@
+.Video-container {
+  justify-content: center;
+  justify-items: center;
+  flex-wrap: wrap-reverse;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 90vh;
+}
+
+.VideoPlay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.VideoPlay-video {
+  max-width: 100%;
+}
+
+.VideoPlay-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.VideoPlay-controls label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: var(--white);
+  background-color: #5194ee;
+  padding: 2px;
+  gap: 5px;
+}
+
+.VideoPlay-controls input {
+  width: 40px;
+  padding: 4px;
+  font-size: 14px;
+}

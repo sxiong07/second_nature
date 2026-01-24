@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Login from "./components/pages/Login";
 import Upload from "./components/pages/Upload";
-import Skeleton from "./components/pages/Skeleton";
-import Webcam from "./components/modules/Webcam";
 import NotFound from "./components/pages/NotFound";
-import VideoLink from "./components/modules/VideoLink";
 import VideoCamera from "./components/pages/VideoCamera";
+import VideoPlay from "./components/pages/VideoPlay";
+import Profile from "./components/pages/Profile";
+import Saved from "./components/pages/Saved";
 
 import {
   createBrowserRouter,
@@ -27,6 +27,9 @@ const router = createBrowserRouter(
       <Route path="/" element={<Login />} />
       <Route path="/upload" element={<Upload />} />
       <Route path="/view" element={<VideoCamera />} />
+      <Route path="/play" element={<VideoPlay />} />
+      <Route path="/saved" element={<Saved />} />
+      <Route path="/profile" element={<Profile />} />
     </Route>
   )
 );

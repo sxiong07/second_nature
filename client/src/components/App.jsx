@@ -1,5 +1,8 @@
 import React, { useState, useEffect, createContext } from "react";
+import NavBar from "./modules/NavBar";
 import { Outlet } from "react-router-dom";
+
+import { googleLogout } from "@react-oauth/google";
 
 import jwt_decode from "jwt-decode";
 
@@ -8,8 +11,6 @@ import "../utilities.css";
 import { socket } from "../client-socket";
 
 import { get, post } from "../utilities";
-
-import VideoUploader from "./pages/VideoUploader";
 
 export const UserContext = createContext(null);
 
@@ -39,6 +40,7 @@ const App = () => {
   };
 
   const handleLogout = () => {
+    googleLogout();
     setUserId(undefined);
     post("/api/logout");
   };
@@ -50,10 +52,14 @@ const App = () => {
   };
 
   return (
-    <UserContext.Provider value={authContextValue}>
-      <VideoUploader />
-      <Outlet />
-    </UserContext.Provider>
+    <>
+      <UserContext.Provider value={authContextValue}>
+        <NavBar handleLogin={handleLogin} handleLogout={handleLogout} />
+        <div className="App-container">
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </>
   );
 };
 
