@@ -46,10 +46,10 @@ vite.config.js
 
 ## Citations
 
-NavBar CSS & javascript file modified from Web Lab Catbook tutorial
-Local storage for storing / remembering links: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-Passing info between pages with location object: https://v5.reactrouter.com/web/api/location
-Uploading files: https://www.geeksforgeeks.org/reactjs/file-uploading-in-react-js/
-Cloudinary DB: https://cloudinary.com/documentation
+- NavBar CSS & javascript file modified from Web Lab Catbook tutorial
+- Local storage for storing / remembering links: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- Passing info between pages with location object: https://v5.reactrouter.com/web/api/location
+- Uploading files: https://www.geeksforgeeks.org/reactjs/file-uploading-in-react-js/
+- Cloudinary DB: https://cloudinary.com/documentation
 
 ## Good luck on your project :)
