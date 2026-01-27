@@ -11,9 +11,14 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Video = require("./models/video");
 
 // import authentication library
 const auth = require("./auth");
+
+// YOUTUBE API
+const googleApi = require("googleapis").google;
+const youtubeApi = googleApi.youtube("v3");
 
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
@@ -44,6 +49,37 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 // anything else falls to this "not found" case
+
+router.get("/videos", (req, res) => {
+  Video.find({}).then((videos) => res.send(videos));
+});
+
+router.post("/videos", (req, res) => {
+
+  const { videoUrl } = req.body;
+
+  const response = youtubeApi.videos.list({
+            key: process.env.YOUTUBE_API,
+            part: 'snippet,contentDetails,statistics',
+            id: videoId
+        });
+  
+  const vid = response.data.items[0];
+
+  if (!vid) {
+    return res.status(404).send({ error: 'Video not found' });
+  }
+
+  const newVideo = new Video({
+    id: videoId,
+    title: vid.snippet.title,
+    thumbnail: vid.snippet.thumbnails.default.url,
+    userId: req.user._id
+  });
+
+  newVideo.save().then((video) => res.send(video));
+});
+
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
