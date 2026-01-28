@@ -18,15 +18,26 @@ const Upload = () => {
       youtubeLink.startsWith("https://www.youtube") ||
       youtubeLink.startsWith("youtu"));
 
-  const onFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const onFileChange = async (event) => {
+    const file = event.target.files[0];
+    await onFileUpload(file);
   };
 
-  const onFileUpload = () => {
+  const onFileUpload = async (file) => {
     const formData = new FormData();
-    formData.append("myFile", selectedFile, selectedFile.name);
-    console.log(selectedFile);
-    // send to database here
+    formData.append("video", file);
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+        credentials: "include",
+      });
+      const data = await res.json();
+      navigate("/play", { state: { uploadedVideoUrl: data.url } });
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      alert("Error uploading file. Please try again.");
+    }
   };
   return (
     <>
@@ -46,9 +57,7 @@ const Upload = () => {
           <button
             className="Button-container"
             onClick={() => {
-              alert(
-                "video upload not available yet!"
-              ); /*document.getElementById("videoUpload").click()*/
+              document.getElementById("videoUpload").click();
             }}
           >
             <span className="Button-content">upload video</span>
@@ -80,14 +89,20 @@ const Upload = () => {
         {open === "link" && (
           <div className="About-container">
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 if (!youtubeLinkValid) {
                   alert("Please enter a YouTube link!");
                   return;
                 }
-                localStorage.setItem("lastYoutubeLink", youtubeLink);
-                navigate("/view", { state: { youtubeLink } });
+                try {
+                  await post("/api/videos", { videoUrl: youtubeLink });
+                  localStorage.setItem("lastYoutubeLink", youtubeLink);
+                  navigate("/view", { state: { youtubeLink } });
+                } catch (error) {
+                  alert("Error uploading video link. Please try again.");
+                  console.error("Error uploading video link:", error);
+                }
               }}
             >
               <input

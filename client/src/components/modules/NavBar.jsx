@@ -29,7 +29,7 @@ const NavBar = (props) => {
           view (youtube)
         </Link>
         <Link to="/play" className="NavBar-link">
-          play (upload)
+          play (uploaded)
         </Link>
         <Link to="/saved" className="NavBar-link">
           saved

@@ -1,9 +1,15 @@
 import React, { useRef, useState } from "react";
 import "./VideoPlay.css";
 import Webcam from "../modules/Webcam";
+import { useLocation } from "react-router-dom";
 
 const VideoPlay = () => {
   const videoRef = useRef(null);
+  const location = useLocation();
+
+  const uploadedVideoUrl = location.state?.uploadedVideoUrl;
+  if (!uploadedVideoUrl) return <div className="No-videos">No video uploaded.</div>;
+  console.log("Uploaded Video URL:", uploadedVideoUrl);
 
   // various setting that we need
   const [loopSetting, setLoopSetting] = useState(false);
@@ -38,7 +44,7 @@ const VideoPlay = () => {
   return (
     <div className="Video-container">
       <div className="VideoPlay-container">
-        <video ref={videoRef} src="/test-video.mp4" controls onTimeUpdate={handleTimeUpdate} />
+        <video ref={videoRef} src={uploadedVideoUrl} controls onTimeUpdate={handleTimeUpdate} />
         <div className="VideoPlay-controls">
           <button onClick={() => setLoopSetting((prev) => !prev)}>
             {loopSetting ? "Unloop Video" : "Loop Video"}

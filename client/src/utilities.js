@@ -53,6 +53,7 @@ export function post(endpoint, params = {}) {
   return fetch(endpoint, {
     method: "post",
     headers: { "Content-type": "application/json" },
+    credentials: "include",
     body: JSON.stringify(params),
   })
     .then(convertToJSON) // convert result to JSON object
