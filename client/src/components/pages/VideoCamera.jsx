@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 
 const VideoCamera = () => {
   const location = useLocation();
-  const youtubeLink = location.state?.youtubeLink || localStorage.getItem("lastYoutubeLink");
+  const youtubeLink = location.state?.youtubeLink;
   let videoId = null;
   if (youtubeLink) {
     if (youtubeLink.includes("youtu.be/")) {

@@ -97,7 +97,6 @@ const Upload = () => {
                 }
                 try {
                   await post("/api/videos", { videoUrl: youtubeLink });
-                  localStorage.setItem("lastYoutubeLink", youtubeLink);
                   navigate("/view", { state: { youtubeLink } });
                 } catch (error) {
                   alert("Error uploading video link. Please try again.");

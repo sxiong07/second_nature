@@ -42,7 +42,7 @@ const Saved = () => {
               navigate(video.type === "youtube" ? "/view" : "/play", {
                 state:
                   video.type === "youtube"
-                    ? { youtubeLink: `https://www.youtube.com/watch?v=${video.id}` }
+                    ? { youtubeLink: `https://www.youtube.com/watch?v=${video.youtubeId}` }
                     : { uploadedVideoUrl: video.url },
               })
             }
