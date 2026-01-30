@@ -1,7 +1,3 @@
-import React, { useContext } from "react";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
-import { UserContext } from "../App";
-
 import "../../utilities.css";
 import "./VideoCamera.css";
 import Webcam from "../modules/Webcam";

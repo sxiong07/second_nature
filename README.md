@@ -2,7 +2,7 @@
 
 ## About
 
-second nature is a movement-focused web platform designed to help you refine your skills through practice, reptition, and self-monitoring.
+Second Nature is a movement-focused web platform designed to help you refine your skills through practice, reptition, and self-monitoring.
 
 Practice side-by-side with uploaded or YouTube reference videos while viewing your own camera feed in real time. Break movements down using customizable playback tools, including looping the video, clipping specific segments, and adjusting playback speed.
 
