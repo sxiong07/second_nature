@@ -33,6 +33,7 @@ const Saved = () => {
       )}
 
       <div className="Saved-video-grid">
+      <div className="Video-count">Number of videos: {videos.length}</div>
         {videos.map((video) => (
           <div
             key={video._id}
