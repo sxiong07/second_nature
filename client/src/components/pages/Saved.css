@@ -47,6 +47,13 @@
   color: var(--white);
 }
 
+.Video-count {
+  text-align: center;
+  font-size: 0.6em;
+  color: var(--white);
+  margin: 10px 0;
+}
+
 .Delete-button {
   position: absolute;
   top: 10px;

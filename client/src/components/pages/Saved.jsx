@@ -32,7 +32,7 @@ const Saved = () => {
           Clear All
         </button>
       )}
-
+      <div className="Video-count">Number of videos: {videos.length}</div>
       <div className="Video-grid">
         {videos.map((video) => (
           <div

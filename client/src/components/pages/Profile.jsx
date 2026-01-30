@@ -4,10 +4,12 @@ import "../../utilities.css";
 import "./Profile.css";
 
 const Saved = () => {
+  const user = useContext(UserContext);
   return (
-    <span className="temp-span">
-      Page for displaying name + avatar (google) & showing profile stats. Oops, nothing's here yet!
-    </span>
+    <div className="Profile-container">
+      <img src={user.avatar} />
+      <h2>{user.name}</h2>
+    </div>
   );
 };
 
