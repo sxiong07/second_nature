@@ -1,10 +1,5 @@
-.Video-container {
-  justify-content: center;
-  justify-items: center;
+.VideoPlay-container {
   flex-wrap: wrap-reverse;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   gap: 20px;
   width: 100%;
   margin: 0 auto;
@@ -13,10 +8,7 @@
   min-height: 90vh;
 }
 
-.VideoPlay-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.VideoPlay-vid-container {
   gap: 16px;
 }
 
@@ -25,15 +17,10 @@
 }
 
 .VideoPlay-controls {
-  display: flex;
-  flex-direction: row;
   gap: 8px;
 }
 
 .VideoPlay-controls label {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   font-size: 14px;
   color: var(--white);
   background-color: #5194ee;
@@ -47,9 +34,8 @@
   font-size: 14px;
 }
 
-.No-videos {
+.VideoPlay-no-videos {
   color: var(--white);
   font-size: 1.2em;
-  text-align: center;
   margin-top: 50px;
 }

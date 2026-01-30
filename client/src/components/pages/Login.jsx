@@ -1,28 +1,24 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import React, { useContext, useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
 
 import "../../utilities.css";
-import { get, post } from "../../utilities";
 import "./Login.css";
 import "./Upload.css";
 import { UserContext } from "../App";
 
 const Login = () => {
-  const { userId, handleLogin, handleLogout } = useContext(UserContext);
+  const { userId, handleLogin, } = useContext(UserContext);
   const [showAbout, setShowAbout] = useState(false);
-  const navigate = useNavigate();
 
   return (
     <>
-      <div className="Parent-container">
-        <div className="Title-container">
-          <h1 className="Title-content">second nature</h1>
-          <h2 className="Subtitle-content">practice in sync. perfect your form.</h2>
-        </div>
-        <div className="Buttons-parent">
-          <button className="Button-container" onClick={() => setShowAbout((prev) => !prev)}>
-            <span className="Button-content">about</span>
+      <div className="Login-parent-container u-flex u-flex-alignCenter u-flex-justifyCenter u-flexColumn">
+        <h1 className="Login-title-content body --white u-bold">second nature</h1>
+        <h2 className="Login-subtitle-content body">practice in sync. perfect your form.</h2>
+        
+        <div className="Login-button-parent u-flex-alignCenter u-flex u-gap-20px">
+          <button className="Login-button-container" onClick={() => setShowAbout((prev) => !prev)}>
+            <span className="Login-button-content">about</span>
           </button>
           {!userId && (
             <GoogleLogin
@@ -37,8 +33,8 @@ const Login = () => {
         </div>
 
         {showAbout && (
-          <div className="About-container">
-            <p className="Button-content">
+          <div className="Login-about-container u-flex u-flex-justifyCenter">
+            <p className="Login-button-content u-flex">
               second nature is a movement-focused web platform designed to help you refine your
               skills through practice, reptition, and self-monitoring.
               <br /> <br /> Practice side-by-side with uploaded or YouTube reference videos while

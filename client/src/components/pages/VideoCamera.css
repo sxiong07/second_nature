@@ -1,26 +1,18 @@
 .VideoCamera-camera {
-  flex: 1;
-  overflow: hidden;
   min-width: 300px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .VideoCamera-videoLink {
-  flex: 1;
-  overflow: hidden;
   min-width: 300px; /* check best min width to have later */ 
-  margin: 0 auto; 
+  margin: 0; 
 }
 
 .VideoCamera-container {
-  justify-content: center;
-  justify-items: center;
   flex-wrap: wrap;
-  display: flex;
-  align-items: center;
   gap: 20px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 20px;
   box-sizing: border-box;
   min-height: 90vh; /* change to vh later for flexibility */ 

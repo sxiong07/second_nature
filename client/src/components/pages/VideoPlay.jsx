@@ -8,7 +8,7 @@ const VideoPlay = () => {
   const location = useLocation();
 
   const uploadedVideoUrl = location.state?.uploadedVideoUrl;
-  if (!uploadedVideoUrl) return <div className="No-videos">No video uploaded.</div>;
+  if (!uploadedVideoUrl) return <div className="VideoPlay-no-videos u-flex-alignCenter">No video uploaded.</div>;
   console.log("Uploaded Video URL:", uploadedVideoUrl);
 
   // various setting that we need
@@ -18,11 +18,9 @@ const VideoPlay = () => {
   const [endTime, setEndTime] = useState(60);
 
   function playVideo() {
-    // try to get the video
     const video = videoRef.current;
     if (!video) return;
 
-    // set loop or not loop, the speed, and the start time as requested
     video.loop = loopSetting;
     video.playbackRate = playbackSpeed;
     video.currentTime = startTime;
@@ -30,7 +28,6 @@ const VideoPlay = () => {
     video.play();
   }
 
-  // "set" / pause the video at the end time
   function handleTimeUpdate() {
     const video = videoRef.current;
     if (!video) return;
@@ -40,12 +37,11 @@ const VideoPlay = () => {
     }
   }
 
-  // including various setting buttons and boxes
   return (
-    <div className="Video-container">
-      <div className="VideoPlay-container">
+    <div className="VideoPlay-container u-flex-alignCenter u-flex-justifyCenter u-flex">
+      <div className="VideoPlay-vid-container u-flexColumn u-flex-alignCenter">
         <video ref={videoRef} src={uploadedVideoUrl} controls onTimeUpdate={handleTimeUpdate} />
-        <div className="VideoPlay-controls">
+        <div className="VideoPlay-controls u-flex u-flex-alignCenter">
           <button onClick={() => setLoopSetting((prev) => !prev)}>
             {loopSetting ? "Unloop Video" : "Loop Video"}
           </button>

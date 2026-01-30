@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../utilities.css";
-import { get, post } from "../../utilities";
+import { post } from "../../utilities";
 import "./Upload.css";
 import { UserContext } from "../App";
 
@@ -41,7 +41,7 @@ const Upload = () => {
   };
   return (
     <>
-      <div className="Parent-container">
+      <div className="Parent-container u-flexColumn u-flex-justifyCenter">
         <div className="Title-container">
           <h1 className="Title-content">second nature</h1>
           <h2 className="Subtitle-content">practice in sync. perfect your form.</h2>

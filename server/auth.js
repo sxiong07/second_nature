@@ -26,6 +26,8 @@ function getOrCreateUser(user) {
     const newUser = new User({
       name: user.name,
       googleid: user.sub,
+      creationDate: Date.now(),
+      loginStreak: 1
     });
 
     return newUser.save();
@@ -38,6 +40,9 @@ function login(req, res) {
     .then((user) => {
       // persist user in the session
       req.session.user = user;
+
+      user.loginStreak++;
+      user.save();
       res.send(user);
     })
     .catch((err) => {

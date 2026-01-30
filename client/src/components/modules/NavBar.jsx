@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { FiLogOut } from "react-icons/fi";
 import "../../utilities.css";
-import { get, post } from "../../utilities";
 import "./NavBar.css";
 import { UserContext } from "../App";
 

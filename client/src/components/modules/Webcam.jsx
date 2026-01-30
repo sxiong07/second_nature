@@ -10,7 +10,6 @@ const Webcam = () => {
       navigator.mediaDevices
         .getUserMedia({ video: true })
         .then((stream) => {
-
           if (videoRef.current) {
             videoRef.current.srcObject = stream;
           }
@@ -35,9 +34,8 @@ const Webcam = () => {
       <video 
         autoPlay={true} 
         ref={videoRef} 
-        id="videoElement"
+        id="videoElement u-flex"
       />
-      
     </div>
   );
 };

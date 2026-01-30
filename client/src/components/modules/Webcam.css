@@ -1,7 +1,6 @@
 #videoElement {
-  display: flex;
-    width: 100%;
-      height: auto;
+  width: 100%;
+  height: auto;
   /* mirror vid, not necessary */
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg); 

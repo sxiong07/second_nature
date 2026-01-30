@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { UserContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import "../../utilities.css";
 import { get } from "../../utilities";
@@ -16,11 +15,11 @@ const Saved = () => {
   }, []);
 
   return (
-    <div className="Profile-container">
-      {videos.length == 0 && <p className="No-videos">No saved videos yet.</p>}
+    <div className="Saved-profile-container u-flexColumn u-flex-justifyCenter">
+      {videos.length == 0 && <p className="Saved-no-videos">No saved videos yet.</p>}
       {videos.length > 0 && (
         <button
-          className="Clear-button"
+          className="Saved-clear-button u-flex-justifyCenter u-flex-alignCenter u-pointer"
           onClick={() => {
             if (!confirm("Clear all saved videos? This action cannot be undone.")) return;
             console.log("DELETE URL:", `/api/videos/`);
@@ -33,11 +32,11 @@ const Saved = () => {
         </button>
       )}
 
-      <div className="Video-grid">
+      <div className="Saved-video-grid">
         {videos.map((video) => (
           <div
             key={video._id}
-            className="Video-card"
+            className="Saved-video-card u-flexColumn u-flex-alignCenter u-pointer"
             onClick={() =>
               navigate(video.type === "youtube" ? "/view" : "/play", {
                 state:
@@ -48,7 +47,7 @@ const Saved = () => {
             }
           >
             <button
-              className="Delete-button"
+              className="Saved-delete-button u-textCenter u-flex-alignCenter u-flex-justifyCenter u-pointer"
               onClick={(e) => {
                 e.stopPropagation();
                 fetch(`/api/videos/${video._id}`, {
@@ -62,12 +61,12 @@ const Saved = () => {
               ✕
             </button>
             {video.type === "youtube" ? (
-              <img src={video.thumbnail} alt={video.title} className="Video-thumbnail" />
+              <img src={video.thumbnail} alt={video.title} className="Saved-video-thumbnail" />
             ) : (
-              <video className="Video-thumbnail" src={video.url} muted preload="metadata" />
+              <video className="Saved-video-thumbnail" src={video.url} muted preload="metadata" />
             )}
 
-            <div className="Video-title">{video.title}</div>
+            <div className="Saved-video-title u-flexColumn u-flex-alignCenter u-flex-justifyCenter u-textCenter">{video.title}</div>
           </div>
         ))}
       </div>

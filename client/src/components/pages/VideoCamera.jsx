@@ -17,11 +17,11 @@ const VideoCamera = () => {
   }
   return (
     <>
-      <div className="VideoCamera-container">
-        <div className="VideoCamera-camera">
+      <div className="VideoCamera-container u-flex u-flex-alignCenter">
+        <div className="VideoCamera-camera u-flex">
           <VideoLink videoId={videoId} />
         </div>
-        <div className="VideoCamera-video">
+        <div className="VideoCamera-video u-flex">
           <Webcam />
         </div>
       </div>
