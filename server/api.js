@@ -110,12 +110,12 @@ const extractVideoID = (videoUrl) => {
   }
 };
 
-router.get("/videos", (req, res) => {
+router.get("/videos", auth.ensureLoggedIn, (req, res) => {
   Video.find({}).then((videos) => res.send(videos));
 });
 
 // GET all videos
-router.get("/videos/mine", async (req, res) => {
+router.get("/videos/mine", auth.ensureLoggedIn, async (req, res) => {
   const youtubeVideos = await Video.find({ userId: req.user._id }); // youtube vids
   const uploadVideos = await uploadvideo.find({ userId: req.user._id }); // uploaded vids
 
@@ -139,7 +139,7 @@ router.get("/videos/mine", async (req, res) => {
 });
 
 // POST single youtube video route
-router.post("/videos", async (req, res) => {
+router.post("/videos", auth.ensureLoggedIn, async (req, res) => {
   const videoId = extractVideoID(req.body.videoUrl);
 
   // first see if we've already saved it
@@ -175,7 +175,7 @@ router.post("/videos", async (req, res) => {
 });
 
 // DELETE single video route
-router.delete("/videos/:id", async (req, res) => {
+router.delete("/videos/:id", auth.ensureLoggedIn, async (req, res) => {
   const { type } = req.query; // either a youtube video or uploaded video
   if (type === "youtube") {
     // simply delete from mongodb
@@ -199,7 +199,7 @@ router.delete("/videos/:id", async (req, res) => {
 });
 
 // DELETE all videos route
-router.delete("/videos", async (req, res) => {
+router.delete("/videos", auth.ensureLoggedIn, async (req, res) => {
   await Video.deleteMany({ userId: req.user._id });
   await uploadvideo.deleteMany({ userId: req.user._id });
   res.send({ success: true });
