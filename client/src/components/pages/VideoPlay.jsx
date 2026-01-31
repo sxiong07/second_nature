@@ -3,6 +3,8 @@ import "./VideoPlay.css";
 import Webcam from "../modules/Webcam";
 import { useLocation } from "react-router-dom";
 
+// page to play back uploaded video with custom settings
+
 const VideoPlay = () => {
   const videoRef = useRef(null);
   const location = useLocation();
@@ -11,7 +13,7 @@ const VideoPlay = () => {
   if (!uploadedVideoUrl) return <div className="VideoPlay-no-videos">No video uploaded.</div>;
   console.log("Uploaded Video URL:", uploadedVideoUrl);
 
-  // various setting that we need
+  // various settings that we need
   const [loopSetting, setLoopSetting] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const [startTime, setStartTime] = useState(0);

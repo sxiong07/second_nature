@@ -16,6 +16,7 @@ export const UserContext = createContext(null);
 
 /**
  * Define the "App" component
+ * added name, pfp, creation date, login streak to user
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
