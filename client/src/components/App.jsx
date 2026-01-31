@@ -19,12 +19,18 @@ export const UserContext = createContext(null);
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [userName, setUserName] = useState("");
+  const [userProfilePic, setUserProfilePic] = useState("");
+  const [userCreationDate, setUserCreationDate] = useState("");
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         setUserId(user._id);
+        setUserName(user.name);
+        setUserProfilePic(user.profilePic);
+        setUserCreationDate(user.creationDate);
       }
     });
   }, []);
@@ -35,6 +41,9 @@ const App = () => {
     console.log(`Logged in as ${decodedCredential.name}`);
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
+      setUserName(user.name);
+      setUserProfilePic(user.profilePic);
+      setUserCreationDate(user.creationDate);
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -42,11 +51,17 @@ const App = () => {
   const handleLogout = () => {
     googleLogout();
     setUserId(undefined);
+    setUserName("");
+    setUserProfilePic("");
+    setUserCreationDate("");
     post("/api/logout");
   };
 
   const authContextValue = {
     userId,
+    userName,
+    userProfilePic,
+    userCreationDate,
     handleLogin,
     handleLogout,
   };

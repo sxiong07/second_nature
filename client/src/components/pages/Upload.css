@@ -1,6 +1,6 @@
 .Upload-parent-container {
   margin: 0;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 .Upload-title-container {
   display: flex;
@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 
-.Button-container:hover {
+.Upload-buttons-container:hover {
   background-color: #5194ee;
 }
 
@@ -63,9 +63,9 @@
   align-items: center;
   justify-content: center;
   border: 2px solid var(--white);
-  width: 60%;
-  max-width: 400px;
-  margin: 20px auto;
+  width: 80%;
+  max-width: 450px;
+  margin: 10px auto;
   padding: 10px;
 }
 

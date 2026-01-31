@@ -25,9 +25,10 @@ function getOrCreateUser(user) {
 
     const newUser = new User({
       name: user.name,
+      profilePic: user.picture,
       googleid: user.sub,
       creationDate: Date.now(),
-      loginStreak: 1
+      loginStreak: 1,
     });
 
     return newUser.save();

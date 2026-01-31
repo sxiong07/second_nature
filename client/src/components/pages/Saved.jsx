@@ -15,11 +15,51 @@ const Saved = () => {
   }, []);
 
   return (
-    <div className="Saved-profile-container u-flexColumn u-flex-justifyCenter">
-      {videos.length == 0 && <p className="Saved-no-videos">No saved videos yet.</p>}
+    <div className="Saved-container">
+      {videos.length == 0 && <p className="No-videos">No saved videos yet.</p>}
+
+      <div className="Video-grid">
+        {videos.map((video) => (
+          <div
+            key={video._id}
+            className="Video-card"
+            onClick={() =>
+              navigate(video.type === "youtube" ? "/view" : "/play", {
+                state:
+                  video.type === "youtube"
+                    ? { youtubeLink: `https://www.youtube.com/watch?v=${video.youtubeId}` }
+                    : { uploadedVideoUrl: video.url },
+              })
+            }
+          >
+            <button
+              className="Delete-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                fetch(`/api/videos/${video._id}?type=${video.type}`, {
+                  method: "DELETE",
+                  credentials: "include",
+                }).then(() => {
+                  setVideos((prev) => prev.filter((v) => v._id != video._id));
+                });
+              }}
+            >
+              ✕
+            </button>
+            {video.type === "youtube" ? (
+              <img src={video.thumbnail} alt={video.title} className="Video-thumbnail" />
+            ) : (
+              <video className="Video-thumbnail" src={video.url} muted preload="metadata" />
+            )}
+
+            <div className="Video-title">{video.title}</div>
+          </div>
+        ))}
+      </div>
+
       {videos.length > 0 && (
         <button
-          className="Saved-clear-button u-flex-justifyCenter u-flex-alignCenter u-pointer"
+          className="Clear-button"
           onClick={() => {
             if (!confirm("Clear all saved videos? This action cannot be undone.")) return;
             console.log("DELETE URL:", `/api/videos/`);
@@ -31,46 +71,6 @@ const Saved = () => {
           Clear All
         </button>
       )}
-
-      <div className="Saved-video-grid">
-      <div className="Video-count">Number of videos: {videos.length}</div>
-        {videos.map((video) => (
-          <div
-            key={video._id}
-            className="Saved-video-card u-flexColumn u-flex-alignCenter u-pointer"
-            onClick={() =>
-              navigate(video.type === "youtube" ? "/view" : "/play", {
-                state:
-                  video.type === "youtube"
-                    ? { youtubeLink: `https://www.youtube.com/watch?v=${video.youtubeId}` }
-                    : { uploadedVideoUrl: video.url },
-              })
-            }
-          >
-            <button
-              className="Saved-delete-button u-textCenter u-flex-alignCenter u-flex-justifyCenter u-pointer"
-              onClick={(e) => {
-                e.stopPropagation();
-                fetch(`/api/videos/${video._id}`, {
-                  method: "DELETE",
-                  credentials: "include",
-                }).then(() => {
-                  setVideos((prev) => prev.filter((v) => v._id != video._id));
-                });
-              }}
-            >
-              ✕
-            </button>
-            {video.type === "youtube" ? (
-              <img src={video.thumbnail} alt={video.title} className="Saved-video-thumbnail" />
-            ) : (
-              <video className="Saved-video-thumbnail" src={video.url} muted preload="metadata" />
-            )}
-
-            <div className="Saved-video-title u-flexColumn u-flex-alignCenter u-flex-justifyCenter u-textCenter">{video.title}</div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

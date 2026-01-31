@@ -1,74 +1,85 @@
-.Saved-profile-container {
-  margin: 0;
+.Saved-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   min-height: 100vh;
 }
 
-.Saved-video-grid {
+.Video-grid {
   display: grid;
+  justify-items: start;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.Saved-video-card {
+.Video-card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--white);
   background-color: #000;
+  max-width: 250px;
+  cursor: pointer;
   transition: transform 0.2s ease;
   padding: 10px;
   position: relative;
   margin: 5px;
 }
 
-.Saved-video-card:hover {
+.Video-card:hover {
   transform: scale(1.03);
 }
 
-.Saved-video-thumbnail {
+.Video-thumbnail {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border: 1px solid var(--white);
 }
 
-.Saved-video-title {
+.Video-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-top: 10px;
   font-size: 1.1em;
   color: var(--white);
 }
 
-.Video-count {
-  text-align: center;
-  font-size: 0.6em;
-  color: var(--white);
-  margin: 10px 0;
-}
-
-.Video-count {
-  text-align: center;
-  font-size: 0.6em;
-  color: var(--white);
-  margin: 10px 0;
-}
-
-.Saved-delete-button {
-  position: absolute; top: 10px; right: 10px;
+.Delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000;
   background-color: var(--white);
-  border-radius: 50%; width: 18px; height: 18px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
   font-size: 8px;
+  cursor: pointer;
   z-index: 2;
   margin: 5px;
 }
 
-.Saved-clear-button {
+.Clear-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000;
   background-color: var(--white);
   width: 90px;
   height: 30px;
   font-size: 16px;
+  cursor: pointer;
   margin: 5px 5px;
 }
 
-.Saved-no-videos {
+.No-videos {
   color: var(--white);
   font-size: 1.2em;
   text-align: center;

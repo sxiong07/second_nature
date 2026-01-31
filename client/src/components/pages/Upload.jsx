@@ -41,21 +41,21 @@ const Upload = () => {
   };
   return (
     <>
-      <div className="Parent-container u-flexColumn u-flex-justifyCenter">
-        <div className="Title-container">
-          <h1 className="Title-content">second nature</h1>
-          <h2 className="Subtitle-content">practice in sync. perfect your form.</h2>
+      <div className="Upload-parent-container u-flexColumn u-flex-justifyCenter">
+        <div className="Upload-title-container">
+          <h1 className="Upload-title-content">second nature</h1>
+          <h2 className="Upload-subtitle-content">practice in sync. perfect your form.</h2>
         </div>
-        <div className="Buttons-parent">
+        <div className="Upload-buttons-parent">
           <button
-            className="Button-container"
+            className="Upload-buttons-container"
             onClick={() => setOpen((prev) => (prev === "about" ? null : "about"))}
           >
             <span className="Button-content">about</span>
           </button>
           <input id="videoUpload" type="file" onChange={onFileChange} style={{ display: "none" }} />
           <button
-            className="Button-container"
+            className="Upload-buttons-container"
             onClick={() => {
               document.getElementById("videoUpload").click();
             }}
@@ -63,7 +63,7 @@ const Upload = () => {
             <span className="Button-content">upload video</span>
           </button>
           <button
-            className="Button-container"
+            className="Upload-buttons-container"
             onClick={() => setOpen((prev) => (prev === "link" ? null : "link"))}
           >
             <span className="Button-content">video link</span>

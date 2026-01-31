@@ -2,11 +2,51 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
-  min-height: 100vh;
+  align-items: center;
 }
 
-.Profile-container {
-  justify-content: center;
-  
+.Profile-avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--white);
+  margin-top: 20px;
+}
+
+.Profile-name {
+  color: var(--white);
+  font-size: 48px;
+  font-weight: 800;
+  margin: 20px;
+}
+
+.Profile-all-stats-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 10px;
+  border: 2px;
+  border-color: var(--white);
+  border-style: solid;
+  padding: 20px;
+}
+
+.Profile-stat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Profile-stats-label {
+  color: var(--white);
+  font-weight: 200;
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.Profile-stats-number {
+  color: var(--white);
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0;
 }

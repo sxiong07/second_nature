@@ -1,20 +1,24 @@
 .Login-parent-container {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .Login-title-content {
   color: var(--white);
   font-size: 100px;
+  font-family: "Kulim-Park", sans-serif;
   font-weight: 400;
+  font-style: normal;
   margin: 0;
 }
 
 .Login-subtitle-content {
   color: var(--white);
   font-size: 36px;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
+  font-style: normal;
   margin: 0;
-  margin-bottom: var(--m);
+  margin-bottom: 20px;
 }
 
 .Login-button-parent {
@@ -38,12 +42,19 @@
 .Login-button-content {
   color: var(--white);
   font-size: 16px;
+  font-family: "Kulim-Park", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .Login-about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 2px solid var(--white);
   width: 80%;
-  max-width: 1000px;
+  max-width: 450px;
   margin: 10px auto;
   padding: 10px;
 }

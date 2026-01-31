@@ -8,7 +8,7 @@ const VideoPlay = () => {
   const location = useLocation();
 
   const uploadedVideoUrl = location.state?.uploadedVideoUrl;
-  if (!uploadedVideoUrl) return <div className="VideoPlay-no-videos u-flex-alignCenter">No video uploaded.</div>;
+  if (!uploadedVideoUrl) return <div className="VideoPlay-no-videos">No video uploaded.</div>;
   console.log("Uploaded Video URL:", uploadedVideoUrl);
 
   // various setting that we need
