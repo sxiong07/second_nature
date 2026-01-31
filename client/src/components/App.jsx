@@ -22,6 +22,7 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [userProfilePic, setUserProfilePic] = useState("");
   const [userCreationDate, setUserCreationDate] = useState("");
+  const [userLoginStreak, setUserLoginStreak] = useState(0);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -31,6 +32,7 @@ const App = () => {
         setUserName(user.name);
         setUserProfilePic(user.profilePic);
         setUserCreationDate(user.creationDate);
+        setUserLoginStreak(user.loginStreak);
       }
     });
   }, []);
@@ -44,6 +46,7 @@ const App = () => {
       setUserName(user.name);
       setUserProfilePic(user.profilePic);
       setUserCreationDate(user.creationDate);
+      setUserLoginStreak(user.loginStreak);
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -54,6 +57,7 @@ const App = () => {
     setUserName("");
     setUserProfilePic("");
     setUserCreationDate("");
+    setUserLoginStreak(0);
     post("/api/logout");
   };
 
@@ -62,6 +66,7 @@ const App = () => {
     userName,
     userProfilePic,
     userCreationDate,
+    userLoginStreak,
     handleLogin,
     handleLogout,
   };

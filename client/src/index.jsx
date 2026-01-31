@@ -7,8 +7,6 @@ import NotFound from "./components/pages/NotFound";
 import VideoCamera from "./components/pages/VideoCamera";
 import VideoPlay from "./components/pages/VideoPlay";
 import Profile from "./components/pages/Profile";
-import Saved from "./components/pages/Saved";
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -28,7 +26,6 @@ const router = createBrowserRouter(
       <Route path="/upload" element={<Upload />} />
       <Route path="/view" element={<VideoCamera />} />
       <Route path="/play" element={<VideoPlay />} />
-      <Route path="/saved" element={<Saved />} />
       <Route path="/profile" element={<Profile />} />
     </Route>
   )

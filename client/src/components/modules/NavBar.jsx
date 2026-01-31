@@ -1,4 +1,4 @@
-import React, { useContext, } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { FiLogOut } from "react-icons/fi";
@@ -25,13 +25,10 @@ const NavBar = (props) => {
           upload
         </Link>
         <Link to="/view" className="NavBar-link">
-          view (youtube)
+          view youtube
         </Link>
         <Link to="/play" className="NavBar-link">
-          play (uploaded)
-        </Link>
-        <Link to="/saved" className="NavBar-link">
-          saved
+          play uploaded
         </Link>
         <Link to="/profile" className="NavBar-link">
           profile
