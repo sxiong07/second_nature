@@ -47,7 +47,9 @@ vite.config.js
 ## Citations
 
 - NavBar CSS & javascript file modified from Web Lab Catbook tutorial
-- Local storage for storing / remembering links: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- Local storage for storing / remembering links: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage (not used in final product)
 - Passing info between pages with location object: https://v5.reactrouter.com/web/api/location
 - Uploading files: https://www.geeksforgeeks.org/reactjs/file-uploading-in-react-js/
-- Cloudinary DB: https://cloudinary.com/documentation
+- Youtube Data API: https://developers.google.com/youtube/v3
+- AWS and s3bucket: https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/
+- Date to string: https://stackoverflow.com/questions/69542299/convert-date-to-month-year-using-javascript

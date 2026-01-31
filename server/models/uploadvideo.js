@@ -1,23 +1,11 @@
 const mongoose = require("mongoose");
 
 const UploadVideoSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true },
-
-  url: {
-    type: String,
-    required: true,
-  },
-
-  key: {
-    type: String,
-    required: true,
-  },
+  userId: mongoose.Schema.Types.ObjectId,
+  url: String,
+  key: String,
   originalName: String,
-
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  createdAt: Date,
 });
 
 module.exports = mongoose.model("uploadvideo", UploadVideoSchema);

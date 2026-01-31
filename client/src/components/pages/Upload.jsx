@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../utilities.css";
 import { post } from "../../utilities";
 import "./Upload.css";
-import { UserContext } from "../App";
+
+// page for uploading youtube link or local storage video file
 
 const Upload = () => {
-  const { userId, handleLogin, handleLogout } = useContext(UserContext);
   const [open, setOpen] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
   const navigate = useNavigate();
   const [youtubeLink, setYoutubeLink] = useState("");
   const youtubeLinkValid =
@@ -23,6 +22,9 @@ const Upload = () => {
     await onFileUpload(file);
   };
 
+  {
+    /* when video uploaded, send to backend, then navigate to 'play uploaded' screen */
+  }
   const onFileUpload = async (file) => {
     const formData = new FormData();
     formData.append("video", file);
@@ -41,6 +43,8 @@ const Upload = () => {
   };
   return (
     <>
+      {" "}
+      {/* similar formatting to login w/ title, subtitle, buttons */}
       <div className="Upload-parent-container u-flexColumn u-flex-justifyCenter">
         <div className="Upload-title-container">
           <h1 className="Upload-title-content">second nature</h1>
@@ -62,6 +66,7 @@ const Upload = () => {
           >
             <span className="Button-content">upload video</span>
           </button>
+          {/* link to youtube video */}
           <button
             className="Upload-buttons-container"
             onClick={() => setOpen((prev) => (prev === "link" ? null : "link"))}
@@ -70,6 +75,7 @@ const Upload = () => {
           </button>
         </div>
 
+        {/* see which dropdown (about or youtube link) open */}
         {open === "about" && (
           <div className="About-container">
             <p className="Button-content">
@@ -90,13 +96,13 @@ const Upload = () => {
           <div className="About-container">
             <form
               onSubmit={async (e) => {
-                e.preventDefault();
+                e.preventDefault(); // don't refresh page
                 if (!youtubeLinkValid) {
                   alert("Please enter a YouTube link!");
                   return;
                 }
                 try {
-                  await post("/api/videos", { videoUrl: youtubeLink });
+                  await post("/api/videos", { videoUrl: youtubeLink }); // try to save youtube link to backend, user specific
                   navigate("/view", { state: { youtubeLink } });
                 } catch (error) {
                   alert("Error uploading video link. Please try again.");

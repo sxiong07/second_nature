@@ -6,20 +6,26 @@ import "./Login.css";
 import "./Upload.css";
 import { UserContext } from "../App";
 
+// initial login page, after log in, functions as about page
+
 const Login = () => {
-  const { userId, handleLogin, } = useContext(UserContext);
+  const { userId, handleLogin } = useContext(UserContext);
   const [showAbout, setShowAbout] = useState(false);
 
   return (
     <>
+      {/* title + subtitle */}
       <div className="Login-parent-container u-flex u-flex-alignCenter u-flex-justifyCenter u-flexColumn">
         <h1 className="Login-title-content body --white u-bold">second nature</h1>
         <h2 className="Login-subtitle-content body">practice in sync. perfect your form.</h2>
-        
+
+        {/* about button */}
         <div className="Login-button-parent u-flex-alignCenter u-flex u-gap-20px">
           <button className="Login-button-container" onClick={() => setShowAbout((prev) => !prev)}>
             <span className="Login-button-content">about</span>
           </button>
+
+          {/* login button */}
           {!userId && (
             <GoogleLogin
               onSuccess={handleLogin}
@@ -32,6 +38,7 @@ const Login = () => {
           )}
         </div>
 
+        {/* about dropdown */}
         {showAbout && (
           <div className="Login-about-container u-flex u-flex-justifyCenter">
             <p className="Login-button-content u-flex">

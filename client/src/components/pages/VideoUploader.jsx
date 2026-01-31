@@ -1,4 +1,5 @@
 // https://www.geeksforgeeks.org/reactjs/file-uploading-in-react-js/
+// defunct; has been integrated into upload.jsx
 
 import React, { useState } from "react";
 

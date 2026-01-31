@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const VideoSchema = new mongoose.Schema({
-    id: String,
-    title: String,
-    thumbnail: Object,
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true }
+  id: String,
+  title: String,
+  thumbnail: Object,
+  userId: mongoose.Schema.Types.ObjectId,
 });
 
-module.exports = mongoose.model("video", VideoSchema);  
+module.exports = mongoose.model("video", VideoSchema);

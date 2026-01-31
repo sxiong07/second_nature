@@ -6,6 +6,8 @@ import "../../utilities.css";
 import "./NavBar.css";
 import { UserContext } from "../App";
 
+// navbar adapted from web lab catbook
+
 const NavBar = (props) => {
   const { userId, handleLogout } = useContext(UserContext);
   const navigate = useNavigate();
